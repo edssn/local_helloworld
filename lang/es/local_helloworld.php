@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 $string['pluginname'] = 'Hello world';
-$string['site_home'] = 'Go to Site Home';
-$string['plugin_home'] = 'Got to Plugin Home';
-$string['hello'] = 'Hello';
-$string['form_input_title'] = 'Name';
-$string['form_input_placeholder'] = 'Write your name';
-$string['form_input_submit'] = 'Submit';
+$string['site_home'] = 'Ir a la página principal del sitio';
+$string['plugin_home'] = 'Ir a la página principal del plugin';
+$string['hello'] = 'Hola';
+$string['form_input_title'] = 'Nombre';
+$string['form_input_placeholder'] = 'Escribe tu nombre';
+$string['form_input_submit'] = 'Enviar';

@@ -1,30 +1,36 @@
 <?php
 require_once(dirname(__FILE__) . '/../../config.php');
 
+global $CFG;
+
 $username = optional_param('username', false, PARAM_RAW);
-$username = s($username);
+if (isset($username) && !empty($username)) {
+    $username = s($username);
+} else {
+    $username = 'mundo';
+}
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?php echo get_string('pluginname', 'local_helloworld')?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 </head>
 <body>
 
-<?php if (isset($username) && !empty($username)) { ?>
-    <h1>Hola <?php echo $username?>!</h1>
+<h1><?php echo get_string('hello', 'local_helloworld')?> <?php echo $username?>!</h1>
+<?php if ($username != 'mundo') { ?>
     <ul>
-        <li><a href="<?php echo $CFG->wwwroot?>">Ir a la página principal del sitio</a></li>
-        <li><a href="<?php echo $CFG->wwwroot?>/local/helloworld/">Ir a la página principal del plugin</a></li>
+        <li><a href="<?php echo $CFG->wwwroot?>"><?php echo get_string('site_home', 'local_helloworld')?></a></li>
+        <li><a href="<?php echo $CFG->wwwroot?>/local/helloworld/"><?php echo get_string('plugin_home', 'local_helloworld')?></a></li>
     </ul>
 <?php } else { ?>
-    <h1>Hola mundo!</h1>
     <form action="<?php echo $CFG->wwwroot?>/local/helloworld/">
-        <label for="username">Ingresa tu nombre</label><br>
-        <input type="text" id="username" name="username" placeholder="Escribe tu nombre"><br>
-        <input type="submit" value="Submit">
+        <label for="username"><?php echo get_string('form_input_title', 'local_helloworld')?></label><br>
+        <input type="text" id="username" name="username" placeholder="<?php echo get_string('form_input_placeholder', 'local_helloworld')?>"><br>
+        <input type="submit" value="<?php echo get_string('form_input_submit', 'local_helloworld')?>">
     </form>
 <?php } ?>
 
