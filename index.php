@@ -54,4 +54,18 @@ echo $output;
 //$out .= html_writer::start_span('zombie') . 'BRAINS' . html_writer::end_span(); // <span class="zombie">BRAINS</span>
 //echo $out;
 
+
+$content = [
+    'title' => 'Titulo de Template',
+    'messages' => array('elemento 1', 'elemento 2', "elemento 3"),
+    'groups' => array(
+            array('title' => 'Elemento 1', 'description' => 'Descripción Elemento 1'),
+            array('title' => 'Elemento 2', 'description' => 'Descripción Elemento 4'),
+            array('title' => 'Elemento 3', 'description' => 'Descripción Elemento 3')
+        ),
+    'url' => $PAGE->url,
+];
+
+//echo $OUTPUT->render_from_template('local_helloworld/index', $content);
+
 echo $OUTPUT->footer();
