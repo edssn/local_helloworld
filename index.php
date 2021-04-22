@@ -17,21 +17,19 @@ $PAGE->set_context(context_system::instance());
 $PAGE->set_title(get_string('pluginname', 'local_helloworld'));
 $PAGE->set_pagelayout('standard');
 $PAGE->set_heading($username);
+
 echo $OUTPUT->header();
-?>
 
-
-<?php if ($has_param) { ?>
-    <ul>
-        <li><a href="<?php echo $CFG->wwwroot?>"><?php echo get_string('site_home', 'local_helloworld')?></a></li>
-        <li><a href="<?php echo $PAGE->url?>"><?php echo get_string('plugin_home', 'local_helloworld')?></a></li>
-    </ul>
-<?php } else { ?>
-    <form action="<?php echo $PAGE->url?>">
-        <label for="username"><?php echo get_string('form_input_title', 'local_helloworld')?></label><br>
-        <input type="text" id="username" name="username" placeholder="<?php echo get_string('form_input_placeholder', 'local_helloworld')?>"><br>
-        <input type="submit" value="<?php echo get_string('form_input_submit', 'local_helloworld')?>">
-    </form>
-<?php }
+if ($has_param) {
+    echo '<ul>';
+    echo '<li><a href="'.$CFG->wwwroot.'">'.get_string("site_home", "local_helloworld").'</a></li>';
+    echo '<li><a href="'.$PAGE->url.'">'.get_string("plugin_home", "local_helloworld").'</a></li>';
+    echo '</ul>';
+} else {
+    echo '<form action="'.$PAGE->url.'">';
+    echo '<label for="username">'.get_string("form_input_title", "local_helloworld").'</label>';
+    echo '<input type="text" id="username" name="username" placeholder="'.get_string("form_input_placeholder", "local_helloworld").'"><br>';
+    echo '<input type="submit" value="'.get_string("form_input_submit", "local_helloworld").'">';
+    echo '</form>';
+}
 echo $OUTPUT->footer();
-?>
