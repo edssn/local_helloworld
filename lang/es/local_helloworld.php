@@ -17,7 +17,7 @@
 $string['pluginname'] = 'Hello world';
 $string['site_home'] = 'Ir a la página principal del sitio';
 $string['plugin_home'] = 'Ir a la página principal del plugin';
-$string['hello'] = 'Hola';
+$string['hello_user'] = 'Hello {$a}';
 $string['form_input_title'] = 'Nombre';
 $string['form_input_placeholder'] = 'Escribe tu nombre';
 $string['form_input_submit'] = 'Enviar';
