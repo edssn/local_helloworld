@@ -20,16 +20,38 @@ $PAGE->set_heading($username);
 
 echo $OUTPUT->header();
 
+$output = '';
 if ($has_param) {
-    echo '<ul>';
-    echo '<li><a href="'.$CFG->wwwroot.'">'.get_string("site_home", "local_helloworld").'</a></li>';
-    echo '<li><a href="'.$PAGE->url.'">'.get_string("plugin_home", "local_helloworld").'</a></li>';
-    echo '</ul>';
+
+    $output .= html_writer::start_tag('ul')."\n";
+    $output .= html_writer::tag('li', html_writer::link($CFG->wwwroot, get_string("site_home", "local_helloworld")))."\n";
+    $output .= html_writer::tag('li', html_writer::link($PAGE->url, get_string("plugin_home", "local_helloworld")))."\n";
+    $output .= html_writer::end_tag('ul');
+
 } else {
-    echo '<form action="'.$PAGE->url.'">';
-    echo '<label for="username">'.get_string("form_input_title", "local_helloworld").'</label>';
-    echo '<input type="text" id="username" name="username" placeholder="'.get_string("form_input_placeholder", "local_helloworld").'"><br>';
-    echo '<input type="submit" value="'.get_string("form_input_submit", "local_helloworld").'">';
-    echo '</form>';
+
+    $output .= html_writer::start_tag('form', array('action' => $PAGE->url))."\n";
+    $output .= html_writer::start_tag('label', array('for' => 'username'));
+    $output .= get_string("form_input_title", "local_helloworld");
+    $output .= html_writer::end_tag('label')."\n";
+    $output .= html_writer::tag('input', '', array('class' => 'input_username', 'type' => 'text', 'name' => 'username','placeholder' => get_string('form_input_placeholder', 'local_helloworld')))."\n";
+    $output .= html_writer::tag('input', '', array('class' => 'submit_form', 'type' => 'submit','placeholder' => get_string('form_input_submit', 'local_helloworld')))."\n";
+    $output .= html_writer::end_tag('form');
+
 }
+echo $output;
+
+
+//    $output .= html_writer::alist(
+//        array(html_writer::link($CFG->wwwroot, get_string("site_home", "local_helloworld")),
+//            html_writer::link($PAGE->url, get_string("plugin_home", "local_helloworld")))
+//        )."\n";
+
+//$out = '';
+//$out .= html_writer::div('anonymous');  // <div>anonymous</div>
+//$out .= html_writer::div('kermit', 'frog'); // <div class="frog">kermit</div>
+//$out .= html_writer::div('Mr', 'toad', array('id' => 'tophat', 'action' => 'tophat')); // <div class="toad" id="tophat">Mr</div>
+//$out .= html_writer::start_span('zombie') . 'BRAINS' . html_writer::end_span(); // <span class="zombie">BRAINS</span>
+//echo $out;
+
 echo $OUTPUT->footer();
