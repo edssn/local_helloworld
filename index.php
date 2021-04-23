@@ -24,12 +24,17 @@ $PAGE->set_heading($username);
 echo $OUTPUT->header();
 
 $output = '';
+$messages = array();
+$title = '';
 if ($has_param) {
 
     $output .= html_writer::start_tag('ul')."\n";
     $output .= html_writer::tag('li', html_writer::link($CFG->wwwroot, get_string("site_home", "local_helloworld")))."\n";
     $output .= html_writer::tag('li', html_writer::link($PAGE->url, get_string("plugin_home", "local_helloworld")))."\n";
     $output .= html_writer::end_tag('ul');
+
+    $messages = \local_helloworld\data::retry_data();
+    $title = 'Tus Mensajes';
 
 } else {
 
@@ -59,16 +64,13 @@ echo $output;
 
 
 $content = [
-    'title' => 'Titulo de Template',
-    'messages' => array('elemento 1', 'elemento 2', "elemento 3"),
-    'groups' => array(
-            array('title' => 'Elemento 1', 'description' => 'Descripción Elemento 1'),
-            array('title' => 'Elemento 2', 'description' => 'Descripción Elemento 4'),
-            array('title' => 'Elemento 3', 'description' => 'Descripción Elemento 3')
-        ),
+    'title' => $title,
+//    'groups' => array('elemento 1', 'elemento 2', "elemento 3"),
+    'groups' => array(),
+    'messages' => $messages,
     'url' => $PAGE->url,
 ];
 
-//echo $OUTPUT->render_from_template('local_helloworld/index', $content);
+echo $OUTPUT->render_from_template('local_helloworld/index', $content);
 
 echo $OUTPUT->footer();

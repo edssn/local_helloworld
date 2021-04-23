@@ -43,7 +43,11 @@ class data {
 
     public static function retry_data(){
         global $DB;
-        $rows = $DB->get_recordset('local_helloworld_messages');
+        $rows = $DB->get_records('local_helloworld_messages');
+        $rows = array_values($rows);
+        foreach ($rows as $row) {
+            $row->timecreated =  userdate($row->timecreated);
+        }
         return $rows;
     }
 
