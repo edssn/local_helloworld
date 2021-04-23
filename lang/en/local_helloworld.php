@@ -21,3 +21,5 @@ $string['hello_user'] = 'Hello {$a}';
 $string['form_input_title'] = 'Name';
 $string['form_input_placeholder'] = 'Write your name';
 $string['form_input_submit'] = 'Submit';
+$string['use_flatnavigation_title'] = 'Display menu in the left drop-down section';
+$string['use_flatnavigation_description'] = 'Show a button to access the plugin in the left navigation bar, otherwise it will only appear in the navigation block.';

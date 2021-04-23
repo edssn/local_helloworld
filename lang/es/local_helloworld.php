@@ -21,3 +21,5 @@ $string['hello_user'] = 'Hello {$a}';
 $string['form_input_title'] = 'Nombre';
 $string['form_input_placeholder'] = 'Escribe tu nombre';
 $string['form_input_submit'] = 'Enviar';
+$string['use_flatnavigation_title'] = 'Botón de acceso al plugin';
+$string['use_flatnavigation_description'] = 'Mostrar un botón de acceso al plugin en la barra de navegación izquierda, del contrario solo aparecerá en el bloque de navegación.';

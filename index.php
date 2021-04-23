@@ -6,7 +6,10 @@ global $CFG, $PAGE, $OUTPUT;
 $username = optional_param('username', false, PARAM_RAW);
 $has_param = false;
 if (isset($username) && !empty($username)) {
-    $username = get_string('hello_user', 'local_helloworld', s($username));
+    $username = s($username);
+    \local_helloworld\data::save_data($username);
+
+    $username = get_string('hello_user', 'local_helloworld', $username);
     $has_param = true;
 } else {
     $username = get_string('pluginname', 'local_helloworld');

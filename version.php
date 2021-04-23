@@ -15,4 +15,4 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 $plugin->component = 'local_helloworld';
-$plugin->version = 2020081800;
+$plugin->version = 2020081801;
